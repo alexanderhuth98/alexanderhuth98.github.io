@@ -656,7 +656,6 @@ progress {
     height: auto;
 }
 
-
 .img-thumbnail {
     padding: 0.25rem;
     background-color: #fff;
@@ -12949,6 +12948,7 @@ body {
 
 .projects-section {
     padding: 10rem 0;
+    background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8) 100%);
 }
 
 .projects-section .featured-text {
