@@ -354,8 +354,14 @@ section h2 {
     line-height: 1.7;
 }
 
-.project-card a {
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1rem;
     margin-top: auto;
+}
+
+.project-card a {
     color: var(--amber);
     font-family: "IBM Plex Mono", monospace;
     font-size: 0.76rem;
