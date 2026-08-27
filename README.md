@@ -2,6 +2,9 @@
 
 Sitio personal orientado a mi perfil profesional como Data Analyst.
 
+Presenta casos reproducibles de retail argentino, pricing de supermercado y clientes
+e-commerce, con enlaces a sus repositorios y entregables tecnicos.
+
 ## Tecnologias
 
 - HTML5
