@@ -445,6 +445,12 @@ footer {
 }
 
 @media (max-width: 991.98px) {
+    #mainNav {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
+
     .hero-grid,
     .section-grid,
     .contact-grid {
