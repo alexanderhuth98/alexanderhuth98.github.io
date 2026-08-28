@@ -9,7 +9,10 @@ e-commerce, con enlaces a sus repositorios y entregables tecnicos.
 
 - HTML5
 - CSS3
-- Bootstrap 5
-- JavaScript
+- JavaScript sin dependencias
+
+El diseno utiliza una interfaz editorial oscura, una reticula tecnica y capturas reales
+de los dashboards publicados. Es responsive y respeta las preferencias de movimiento
+del sistema.
 
 El sitio se publica con GitHub Pages en [alexanderhuth98.github.io](https://alexanderhuth98.github.io/).
