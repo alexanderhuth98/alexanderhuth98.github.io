@@ -15,4 +15,7 @@ El diseno utiliza una interfaz editorial oscura, una reticula tecnica y capturas
 de los dashboards publicados. Es responsive y respeta las preferencias de movimiento
 del sistema.
 
+Los avisos de licencia de los iconos del footer se encuentran en
+[`assets/icons/LICENSES.md`](assets/icons/LICENSES.md).
+
 El sitio se publica con GitHub Pages en [alexanderhuth98.github.io](https://alexanderhuth98.github.io/).
