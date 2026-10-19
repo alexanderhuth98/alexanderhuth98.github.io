@@ -5,30 +5,60 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const navigation = document.querySelector("#primary-nav");
     const navLinks = [...document.querySelectorAll("#primary-nav a")];
+    const mobileNavigation = window.matchMedia("(max-width: 820px)");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const closeMenu = () => {
-        menuToggle?.setAttribute("aria-expanded", "false");
-        menuToggle?.setAttribute("aria-label", "Abrir menu de navegacion");
-        navigation?.classList.remove("is-open");
-        document.body.classList.remove("menu-open");
+    const isMenuOpen = () => menuToggle?.getAttribute("aria-expanded") === "true";
+
+    const setMenuOpen = (open) => {
+        const nextOpen = mobileNavigation.matches && open;
+        menuToggle?.setAttribute("aria-expanded", String(nextOpen));
+        menuToggle?.setAttribute(
+            "aria-label",
+            nextOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación",
+        );
+        navigation?.classList.toggle("is-open", nextOpen);
+        document.body.classList.toggle("menu-open", nextOpen);
+
+        if (navigation) {
+            const closedMobileMenu = mobileNavigation.matches && !nextOpen;
+            navigation.toggleAttribute("inert", closedMobileMenu);
+            if (mobileNavigation.matches) {
+                navigation.setAttribute("aria-hidden", String(!nextOpen));
+            } else {
+                navigation.removeAttribute("aria-hidden");
+            }
+        }
     };
 
     menuToggle?.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu de navegacion" : "Cerrar menu de navegacion");
-        navigation?.classList.toggle("is-open", !isOpen);
-        document.body.classList.toggle("menu-open", !isOpen);
+        setMenuOpen(!isMenuOpen());
     });
 
-    navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+    navLinks.forEach((link) => link.addEventListener("click", () => {
+        if (isMenuOpen()) link.blur();
+        setMenuOpen(false);
+    }));
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeMenu();
+        if (event.key === "Escape" && isMenuOpen()) {
+            menuToggle?.focus({ preventScroll: true });
+            setMenuOpen(false);
         }
     });
+
+    const syncMenuToViewport = () => {
+        if (mobileNavigation.matches && navigation?.contains(document.activeElement)) {
+            menuToggle?.focus({ preventScroll: true });
+        }
+        setMenuOpen(false);
+    };
+    if (typeof mobileNavigation.addEventListener === "function") {
+        mobileNavigation.addEventListener("change", syncMenuToViewport);
+    } else {
+        mobileNavigation.addListener(syncMenuToViewport);
+    }
+    setMenuOpen(false);
 
     const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 12);
     updateHeader();
