@@ -231,8 +231,8 @@ button {
 .hero-panel {
     position: relative;
     display: grid;
-    min-height: min(700px, calc(100vh - var(--header-height) - 50px));
-    padding: clamp(38px, 7vw, 92px);
+    min-height: min(620px, calc(100vh - var(--header-height) - 32px));
+    padding: clamp(36px, 5vw, 72px);
     overflow: hidden;
     grid-template-columns: minmax(0, 1fr) minmax(230px, 0.35fr);
     gap: clamp(40px, 8vw, 110px);
@@ -388,7 +388,6 @@ button {
 
 .hero-domain {
     display: inline-flex;
-    margin-top: 28px;
     gap: 10px;
     align-items: center;
     color: #d4dbd8;
@@ -396,6 +395,41 @@ button {
     font-size: 0.72rem;
     letter-spacing: 0.035em;
     text-decoration: none;
+}
+
+.hero-actions {
+    display: flex;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    gap: 18px 24px;
+    align-items: center;
+}
+
+.hero-cv-cta {
+    display: inline-flex;
+    min-height: 44px;
+    padding: 10px 16px;
+    gap: 14px;
+    align-items: center;
+    color: var(--bg);
+    background: var(--mint-bright);
+    border: 1px solid var(--mint-bright);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 180ms ease, background-color 180ms ease;
+}
+
+.hero-cv-cta:hover {
+    color: var(--mint);
+    background: transparent;
+}
+
+.hero-cv-cta span {
+    font-size: 1rem;
 }
 
 .hero-domain > span {
@@ -429,7 +463,7 @@ button {
 .status-label {
     margin: 0 0 24px;
     color: var(--mint);
-    font-size: 0.58rem;
+    font-size: 0.7rem;
     line-height: 1.5;
 }
 
@@ -502,7 +536,7 @@ button {
 .section-title p {
     margin: 0 0 3px;
     color: var(--dim);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
 }
 
 .section-title h2 {
@@ -565,6 +599,31 @@ button {
     margin: 0;
 }
 
+.operations-bridge {
+    display: grid;
+    margin-top: 28px;
+    padding: 20px 22px;
+    grid-template-columns: minmax(150px, 0.32fr) 1fr;
+    gap: 22px;
+    align-items: start;
+    background: var(--surface-soft);
+    border-left: 3px solid var(--amber);
+}
+
+.operations-bridge span {
+    color: var(--amber);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.operations-bridge p {
+    margin: 0;
+    color: #c8cfcc;
+    font-size: 0.9rem;
+}
+
 .stack-card {
     padding: clamp(28px, 4vw, 40px);
 }
@@ -577,26 +636,21 @@ button {
 
 .stack-item {
     display: grid;
-    grid-template-columns: 1fr 95px;
+    grid-template-columns: 82px minmax(0, 1fr);
     gap: 20px;
     align-items: center;
     font-family: var(--mono);
     font-size: 0.78rem;
 }
 
-.stack-meter {
+.stack-evidence {
     display: block;
-    height: 4px;
-    overflow: hidden;
-    background: rgba(237, 241, 239, 0.13);
-}
-
-.stack-meter i {
-    display: block;
-    width: var(--level);
-    height: 100%;
-    background: var(--mint);
-    box-shadow: 0 0 10px rgba(158, 246, 229, 0.45);
+    padding: 6px 9px;
+    color: var(--muted);
+    background: var(--bg-deep);
+    border-left: 2px solid var(--mint);
+    font-size: 0.7rem;
+    line-height: 1.35;
 }
 
 .stack-tags {
@@ -614,7 +668,7 @@ button {
     color: var(--text);
     background: var(--bg-deep);
     font-family: var(--mono);
-    font-size: 0.61rem;
+    font-size: 0.7rem;
     letter-spacing: 0.05em;
 }
 
@@ -692,7 +746,7 @@ button {
     margin-top: auto;
     color: var(--mint);
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: 0.7rem;
 }
 
 .process-strip {
@@ -724,7 +778,7 @@ button {
     grid-row: 1 / 3;
     color: var(--amber);
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
 }
 
 .process-strip strong {
@@ -846,7 +900,7 @@ button {
     color: var(--mint);
     border: 1px solid var(--line-strong);
     font-family: var(--mono);
-    font-size: 0.66rem;
+    font-size: 0.7rem;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 180ms ease, background-color 180ms ease;
@@ -946,7 +1000,7 @@ button {
     margin-bottom: 5px;
     color: var(--dim);
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -1000,7 +1054,7 @@ button {
 .footer-shell nav {
     margin: 0;
     font-family: var(--mono);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
@@ -1133,7 +1187,8 @@ button {
         background: rgba(8, 13, 13, 0.985);
         border-bottom: 1px solid transparent;
         opacity: 0;
-        transition: max-height 250ms ease, opacity 180ms ease, padding 250ms ease;
+        visibility: hidden;
+        transition: max-height 250ms ease, opacity 180ms ease, padding 250ms ease, visibility 0s linear 250ms;
     }
 
     .primary-nav.is-open {
@@ -1141,6 +1196,8 @@ button {
         padding-block: 14px 30px;
         border-bottom-color: var(--line-strong);
         opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
     }
 
     .primary-nav a {
@@ -1188,6 +1245,11 @@ button {
 
     .profile-copy {
         grid-template-columns: 1fr;
+    }
+
+    .operations-bridge {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .projects-grid {
@@ -1252,7 +1314,12 @@ button {
     }
 
     .hero-domain {
-        font-size: 0.61rem;
+        font-size: 0.7rem;
+    }
+
+    .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .section-title {
