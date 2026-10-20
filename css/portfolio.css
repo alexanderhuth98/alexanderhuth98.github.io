@@ -1414,3 +1414,49 @@ button {
         transform: none;
     }
 }
+
+.not-found {
+    display: grid;
+    min-height: calc(100vh - var(--header-height) - 90px);
+    padding-block: 48px;
+    place-items: center;
+}
+
+.not-found-panel {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    padding: clamp(42px, 8vw, 90px);
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+}
+
+.not-found-code {
+    position: absolute;
+    top: -0.2em;
+    right: -0.02em;
+    color: rgba(158, 246, 229, 0.045);
+    font-family: var(--mono);
+    font-size: clamp(9rem, 28vw, 18rem);
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.not-found-panel h1 {
+    position: relative;
+    max-width: 650px;
+    margin: 0;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.not-found-panel > p:not(.eyebrow) {
+    position: relative;
+    max-width: 590px;
+    margin: 26px 0 34px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
